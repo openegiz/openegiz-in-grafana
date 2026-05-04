@@ -1,0 +1,30 @@
+name: Build Grafana app
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --immutable
+      - run: yarn build
+      - run: |
+          mkdir -p package/openegiz-openegiz-app
+          cp -R dist/. package/openegiz-openegiz-app/
+          cd package
+          zip -r ../openegiz-openegiz-app.zip openegiz-openegiz-app
+      - uses: actions/upload-artifact@v4
+        with:
+          name: openegiz-openegiz-app
+          path: openegiz-openegiz-app.zip

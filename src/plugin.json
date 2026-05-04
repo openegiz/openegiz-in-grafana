@@ -1,0 +1,125 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "app",
+  "name": "OpenEgiz",
+  "id": "openegiz-openegiz-app",
+  "info": {
+    "description": "Grafana app plugin for digital twins",
+    "author": {
+      "name": "OpenEgiz"
+    },
+    "keywords": [
+      "panel",
+      "template"
+    ],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [
+      {
+        "name": "Website",
+        "url": "https://github.com/openegiz/openegiz"
+      },
+      {
+        "name": "License",
+        "url": "https://github.com/openegiz/openegiz/blob/main/LICENSE"
+      }
+    ],
+    "screenshots": [],
+    "version": "2.0.2",
+    "updated": "%TODAY%"
+  },
+  "includes": [
+    {
+      "type": "page",
+      "name": "Twins",
+      "addToNav": true,
+      "path": "/a/openegiz-openegiz-app",
+      "role": "Viewer",
+      "defaultNav": true,
+      "icon": "file-alt"
+    },
+    {
+      "type": "page",
+      "name": "Twins",
+      "addToNav": true,
+      "path": "/a/openegiz-openegiz-app/twins",
+      "role": "Viewer",
+      "icon": "file-alt"
+    },
+    {
+      "type": "page",
+      "name": "Types",
+      "addToNav": true,
+      "path": "/a/openegiz-openegiz-app/types",
+      "role": "Viewer",
+      "icon": "folder-plus"
+    },
+    {
+      "type": "page",
+      "name": "Connections",
+      "addToNav": true,
+      "path": "/a/openegiz-openegiz-app/connections",
+      "role": "Editor",
+      "icon": "plug"
+    },
+    {
+      "type": "page",
+      "name": "Policies",
+      "addToNav": true,
+      "path": "/a/openegiz-openegiz-app/policies",
+      "role": "Editor",
+      "icon": "shield"
+    },
+    {
+      "type": "page",
+      "name": "Config",
+      "path": "/plugins/openegiz-openegiz-app/?page=configuration",
+      "role": "Admin",
+      "addToNav": true,
+      "icon": "sliders-v-alt"
+    }
+  ],
+  "routes": [
+    {
+      "path": "ditto/*",
+      "url": "{{ .JsonData.dittoURL }}",
+      "headers": [
+        {
+          "name": "Authorization",
+          "content": "Basic {{ .SecureJsonData.dittoBasicAuth }}"
+        }
+      ]
+    },
+    {
+      "path": "dittodevops/*",
+      "url": "{{ .JsonData.dittoURL }}",
+      "headers": [
+        {
+          "name": "Authorization",
+          "content": "Basic {{ .SecureJsonData.dittoDevopsBasicAuth }}"
+        }
+      ]
+    },
+    {
+      "path": "extended/*",
+      "url": "{{ .JsonData.extendedURL }}",
+      "headers": [
+        {
+          "name": "Authorization",
+          "content": "Basic {{ .SecureJsonData.dittoBasicAuth }}"
+        }
+      ]
+    },
+    {
+      "path": "agents/*",
+      "url": "{{ .JsonData.agentsURL }}"
+    }
+  ],
+  "dependencies": {
+    "grafanaDependency": ">=10.0.0",
+    "grafanaVersion": "12.0.0",
+    "plugins": []
+  }
+}
