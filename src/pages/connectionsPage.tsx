@@ -6,8 +6,8 @@ import { useStyles2, Alert } from '@grafana/ui';
 import { PluginPage } from '@grafana/runtime';
 
 // Components
-import { ConnectionForm } from 'components/Connections/Form/ConnectionForm';
-import { ConnectionsList } from 'components/Connections/List/ConnectionsList';
+import { ConnectionForm } from 'components/connections/Form/ConnectionForm';
+import { ConnectionsList } from 'components/connections/list/ConnectionsList';
 
 // --- Types & Enums ---
 
