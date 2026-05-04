@@ -4,11 +4,11 @@ import { AppRootProps } from '@grafana/data';
 import { PluginPage } from '@grafana/runtime';
 
 // Page Imports
-import { ConnectionPageMode, ConnectionsPage } from 'pages/ConnectionsPage';
+import { ConnectionPageMode, ConnectionsPage } from 'pages/connectionsPage';
 import { TwinsElementType, TwinsPage, TwinsPageMode } from 'pages/TwinsPage';
 import { PoliciesPage, PoliciesPageMode } from 'pages/PoliciesPage';
 import { TypesPage, TypesPageMode } from 'pages/TypesPage';
-import { AgentsPage, AgentsPageMode } from 'pages/AgentsPage';
+import { AgentsPage, AgentsPageMode } from 'pages/agentsPage';
 import { AppHeader } from './AppHeader';
 
 export const App = ({ meta }: AppRootProps) => {

@@ -6,9 +6,9 @@ import { useStyles2, Alert } from '@grafana/ui';
 import { PluginPage } from '@grafana/runtime';
 
 // Components
-import { TypesList } from 'components/Types/List/TypesList';
-import { TypeInfo } from 'components/Types/Info/TypeInfo';
-import { TypeForm } from 'components/Types/Form/TypeForm';
+import { TypesList } from 'components/types/List/TypesList';
+import { TypeInfo } from 'components/types/Info/TypeInfo';
+import { TypeForm } from 'components/types/Form/TypeForm';
 
 // --- Types & Enums ---
 
